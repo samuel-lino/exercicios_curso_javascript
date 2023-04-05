@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>exercicio_002 do modulo 1 do curso de javascript do EBAC</title>
+        <style>
+            body{
+                width: auto;
+            }
+            h1{
+                font-size: 12pt;
+                text-align: center;
+            }
+            div#principal{
+                background-color: aquamarine;
+                width: 500px;
+                margin: auto;
+            }
+            table#dados{
+                margin: auto;
+            }
+            input, button{
+                margin: 10px;
+                text-align: center;
+            }
+            button{
+                margin-left: 40px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="principal">
+            <h1>Digite 3 numeros, para calcularmos a média deles.</h1>
+            <table id="dados">
+                <tr><td><input type="number" id="a"></td></tr>
+                <tr><td><input type="number" id="b"></td></tr>
+                <tr><td><input type="number" id="c"></td></tr>
+                <tr><td><button id="calc" onclick="calcular()">
+                    Calcule a média
+                </button></td></tr>
+                <tr><td> 
+                    <div id="resultado">
+
+                    </div></td></tr>
+            </table>
+        </div>
+        <script>
+            function calcular(){
+                var a = parseInt(document.getElementById("a").value)
+                var b = parseInt(document.getElementById("b").value)
+                var c = parseInt(document.getElementById("c").value)
+                var resul = (a + b + c) / 3
+
+                document.getElementById("resultado").innerHTML = "A média é: " + resul
+            }
+
+        </script>
+    </body>
+</html>
