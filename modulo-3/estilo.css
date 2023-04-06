@@ -1,0 +1,32 @@
+div#principal{
+    max-width: 800px;
+    margin: auto;
+}
+form{
+    background-color: rgb(215, 209, 209);
+}
+h1, h2{
+    text-align: center;
+}
+input{
+    font-size: 13pt;
+    margin-left: 150px;
+    margin-right: 150px;
+    margin-bottom: 15px;
+    width: 500px;
+}
+button{
+    width: 150px;
+    margin-left: 325px;
+    margin-right: 325px;
+    font-size: 20pt;
+    background-color: rgba(110, 209, 193, 0.86);
+}
+
+.erro{
+    border-color: red;
+}
+div#mensagem{
+    text-align: center;
+    font-size: 16pt;
+}
