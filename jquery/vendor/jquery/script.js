@@ -24,6 +24,19 @@ jQuery( function($){
     $('.featured-item a').addClass('btn btn-dark stretch-link');
     $('.featured-item:first h4').append('<span class="badge bg-success">novo</span>');
     // como mudar o css com jQuery
-    $('.featured-item:first h4').css('color', '#0000FF');
+    //$('.featured-item:first h4').css('color', '#0000FF');
     // para passar mais de um parametro devese usar a logica de biblioteca que é chave(em texto):valor(em texto) e colocar uma virgula para acressentar um novo atributo.
+    $('.featured-item h4').mouseover(function(){
+        $(this).css({
+            'color': '#ff0000',
+            'background': '#0000FF'
+        });
+    });
+
+    $('.featured-item h4').mouseout(function(){
+        $(this).css({
+            'color': '#000000',
+            'background': '#FFFFFF'
+        });
+    });
 })
