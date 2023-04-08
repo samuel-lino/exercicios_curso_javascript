@@ -2,7 +2,6 @@
     $(document).ready(function(){
         $(".owl-carousel").owlCarousel()
     });
-
     $('.dropdown-toggle').click(function(){
         if($('.dropdown-menu').attr('aria-labelledby') == $(this).attr('id')){
             $('.dropdown-menu').addClass('show');
@@ -15,6 +14,16 @@
             $('.dropdown-menu').removeClass('show');
         }
     });
-    
-
+    $('.texto').mouseover(function(){
+        let nome = $(this).attr('id')
+        $('.'+nome).find('img').show(1000)
+        
+    });
+    $('.texto').mouseout(function(){
+        let nome = $(this).attr('id')
+        if ($('.' + nome).find('#img').is(':visible')){
+            $('.'+nome).find('img').hide(1000)
+        }
+        
+    });
     

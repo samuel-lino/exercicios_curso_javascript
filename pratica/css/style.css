@@ -7,3 +7,26 @@
 .dropdown-menu, .dropdown-item{
     background-color: aquamarine;
 }
+.conteudo{
+    margin-top: 100px;
+    width: 500px;
+}
+.artigo{
+    margin-top: 3px;
+    border: 1px solid;
+    margin: 5px;
+    padding: 7px;
+}
+p{
+    text-align: justify;
+}
+div#imagem{
+    position: relative;
+    margin-left: 450px;
+    margin-top: -195px;
+}
+#img{
+    scale: 0.5;
+    display: none;
+    
+}

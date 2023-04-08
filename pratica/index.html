@@ -10,34 +10,48 @@
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-info bg-info fixed-top">
-      <div class="container">
-        <a class="navbar-brand" href="#">explica JavaScript</a>
-        <button class="navbar-toggler hidden-lg-up" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId"
-            aria-expanded="false" aria-label="Toggle navigation"></button>
-        <div class="collapse navbar-collapse" id="collapsibleNavId">
-          <ul class="navbar-nav me-auto mt-2 mt-lg-0">
-            <li class="nav-item">
-              <a class="nav-link active" href="#" aria-current="page">inicio<span class="visually-hidden">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Sobre</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">mais</a>
-              <div class="dropdown-menu" aria-labelledby="dropdownId">
-                <a class="dropdown-item" href="#">Fale conosco</a>
-                <a class="dropdown-item" href="#">Reclamações</a>
-              </div>
-            </li>
-          </ul>
-          <form class="d-flex my-2 my-lg-0">
-            <input class="form-control me-sm-2" type="text" placeholder="Search">
-            <button class="btn btn-secondary my-2 my-sm-0" type="submit">procurar</button>
-          </form>
+    <div class="tudo">
+        <nav class="navbar navbar-expand-lg navbar-info bg-info fixed-top">
+            <div class="container">
+                <a class="navbar-brand" href="#">explicando JavaScript</a>
+                <button class="navbar-toggler hidden-lg-up" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+                    aria-expanded="false" aria-label="Toggle navigation"></button>
+                <div class="collapse navbar-collapse" id="collapsibleNavId">
+                    <ul class="navbar-nav me-auto mt-2 mt-lg-0">
+                        <li class="nav-item">
+                        <a class="nav-link active" href="#" aria-current="page">inicio<span class="visually-hidden">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link" href="#">Sobre</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">mais</a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownId">
+                            <a class="dropdown-item" href="#">Fale conosco</a>
+                            <a class="dropdown-item" href="#">Reclamações</a>
+                        </div>
+                        </li>
+                    </ul>
+                    <form class="d-flex my-2 my-lg-0">
+                        <input class="form-control me-sm-2" type="text" placeholder="Search">
+                        <button class="btn btn-secondary my-2 my-sm-0" type="submit">procurar</button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+
+        <div class="conteudo">
+            <article class="artigo">
+                <h2>O que é JavaScript?</h2>
+                <p class="texto" id="primeiro">
+                    O JavaScript é uma liguagem de programação voltada a interação com o usuario, permitindo criar conteudo que se atualize dinamicamente.
+                </p>
+            </article>
+            <div class="primeiro" id="imagem">
+                <img id="img" src="./assets/javascript.png" alt="javascript">
+            </div>
         </div>
-      </div>
-    </nav>
+    </div>
     
 
     <script src="./vendor/jquery/jquery-3.6.4.min.js"></script>
