@@ -1,0 +1,9 @@
+.nav-link{
+    font-size: 20pt;
+}
+.navbar-brand{
+    font-size: 25pt;
+}
+.dropdown-menu, .dropdown-item{
+    background-color: aquamarine;
+}
