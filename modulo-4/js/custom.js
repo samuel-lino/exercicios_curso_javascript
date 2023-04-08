@@ -53,7 +53,7 @@ $(document).ready(function(){
    //esconde as informaçoes do produto
    $('.featured-item a, h4, h5, h6').hide();
    //exibe as informações do produto ao passar o mouse sobre a imagem
-   $('.featured-item ').mouseover(function(){
+   $('.featured-item').mouseover(function(){
       $(this).find('a, h4, h5, h6').show();
    });
    //esconde as informações novamente apos o mouse sair
