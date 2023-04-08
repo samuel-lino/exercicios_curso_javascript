@@ -39,4 +39,12 @@ jQuery( function($){
             'background': '#FFFFFF'
         });
     });
+    $('.navbar-toggler').click(function(){
+        $('.collapse').addClass('show')
+    });
+    $(document).click(function(event){
+        if (!$(event.target).closest('.navbar-toggler, .nav-item').length){
+            $('.collapse').removeClass('show')
+        }
+    })
 })
