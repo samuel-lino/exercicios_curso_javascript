@@ -19,14 +19,14 @@
 }
 p{
     text-align: justify;
+    border-bottom: 0.5px solid;
 }
-div#imagem{
-    position: relative;
+img{
+    position: absolute;
     margin-left: 450px;
-    margin-top: -195px;
+    margin-top: -180px;
 }
-#img{
+#imagem{
     scale: 0.5;
     display: none;
-    
 }

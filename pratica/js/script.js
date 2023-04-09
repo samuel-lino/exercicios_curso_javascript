@@ -14,16 +14,13 @@
             $('.dropdown-menu').removeClass('show');
         }
     });
+    let meuid
     $('.texto').mouseover(function(){
-        let nome = $(this).attr('id')
-        $('.'+nome).find('img').show(1000)
+        meuid = $(this).attr('id')
+        $('.'+meuid).show()
         
     });
     $('.texto').mouseout(function(){
-        let nome = $(this).attr('id')
-        if ($('.' + nome).find('#img').is(':visible')){
-            $('.'+nome).find('img').hide(1000)
-        }
-        
+        $('.'+meuid).hide()
     });
     
