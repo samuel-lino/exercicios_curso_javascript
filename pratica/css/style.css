@@ -1,32 +1,7 @@
-.nav-link{
-    font-size: 20pt;
-}
-.navbar-brand{
-    font-size: 25pt;
-}
-.dropdown-menu, .dropdown-item{
-    background-color: aquamarine;
-}
-.conteudo{
-    margin-top: 100px;
-    width: 500px;
-}
-.artigo{
-    margin-top: 3px;
-    border: 1px solid;
-    margin: 5px;
-    padding: 7px;
-}
-p{
-    text-align: justify;
-    border-bottom: 0.5px solid;
-}
-img{
-    position: absolute;
-    margin-left: 450px;
-    margin-top: -180px;
-}
-#imagem{
-    scale: 0.5;
-    display: none;
+
+.navbar{
+    text-align: center;
+	width: 100%;
+	position: relative;
+	padding: 25px 0px;
 }

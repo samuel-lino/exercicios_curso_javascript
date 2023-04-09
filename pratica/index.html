@@ -11,52 +11,89 @@
 </head>
 <body>
     <div class="tudo">
-        <nav class="navbar navbar-expand-lg navbar-info bg-info fixed-top">
-            <div class="container">
-                <a class="navbar-brand" href="#">explicando JavaScript</a>
-                <button class="navbar-toggler hidden-lg-up" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId"
-                    aria-expanded="false" aria-label="Toggle navigation"></button>
+        <nav class="navbar navbar-expand-sm navbar-light bg-light">
+              <div class="container">
+                <a class="navbar-brand" href="#">Navbar</a>
+                <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
                 <div class="collapse navbar-collapse" id="collapsibleNavId">
                     <ul class="navbar-nav me-auto mt-2 mt-lg-0">
                         <li class="nav-item">
-                        <a class="nav-link active" href="#" aria-current="page">inicio<span class="visually-hidden">(current)</span></a>
+                            <a class="nav-link active nav-modal-open" rel="contato" href="#" aria-current="page">Contato <span class="visually-hidden">(current)</span></a>
                         </li>
                         <li class="nav-item">
-                        <a class="nav-link" href="#">Sobre</a>
+                            <a class="nav-link nav-modal-open" rel="sobre" href="#">Sobre</a>
                         </li>
                         <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">mais</a>
-                        <div class="dropdown-menu" aria-labelledby="dropdownId">
-                            <a class="dropdown-item" href="#">Fale conosco</a>
-                            <a class="dropdown-item" href="#">Reclamações</a>
-                        </div>
+                            <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+                            <div class="dropdown-menu" aria-labelledby="dropdownId">
+                                <a class="dropdown-item" href="#">Action 1</a>
+                                <a class="dropdown-item" href="#">Action 2</a>
+                            </div>
                         </li>
                     </ul>
                     <form class="d-flex my-2 my-lg-0">
                         <input class="form-control me-sm-2" type="text" placeholder="Search">
-                        <button class="btn btn-secondary my-2 my-sm-0" type="submit">procurar</button>
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                     </form>
                 </div>
-            </div>
+          </div>
         </nav>
-
-        <div class="conteudo">
-            <article class="artigo">
-                <h2>O que é JavaScript?</h2>
-                <p class="texto" id="primeiro">
-                    O JavaScript é uma liguagem de programação voltada a interação com o usuario, permitindo criar conteudo que se atualize dinamicamente.
-                    <img class= "primeiro" id="imagem" src="./assets/javascript.png" alt="javascript">
-                </p>
-                
-
-                <h2>O que é JavaScript?</h2>
-                <p class="texto" id="segundo">
-                    O JavaScript é uma liguagem de programação voltada a interação com o usuario, permitindo criar conteudo que se atualize dinamicamente.
-                    <img class= "segundo" id="imagem" src="./assets/javascript.png" alt="javascript">
-                </p>
-                
-            </article>
+        
+        <!-- Modal Body -->
+        <!-- if you want to close by clicking outside the modal, delete the last endpoint:data-bs-backdrop and data-bs-keyboard -->
+        <div class="modal fade" id="modalId" tabindex="-1" role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
+            <div class="modal-dialog"role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalTitleId">Modal title</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        Body
+                    </div>
+                </div>
+            </div>
         </div>
+        
+        
+        <div id="contato" class="visually-hidden">
+            <div class="mb-3">
+              <label for="nome" class="form-label">Nome</label>
+              <input type="text" name="nome" id="nome" class="form-control" placeholder="Digite o seu nome" aria-describedby="helpNome">
+              <small id="helpNome" class="text-muted">Digite um nome valido</small>
+            </div>
+            <div class="mb-3">
+              <label for="email" class="form-label">E-mail</label>
+              <input type="text" name="email" id="email" class="form-control" placeholder="Digite o seu E-mail " aria-describedby="helpemail">
+              <small id="helpemail" class="text-muted">Digite um E-mail valido</small>
+            </div>
+            <div class="mb-3">
+              <label for="telefone" class="form-label">Telefone</label>
+              <input type="text" name="telefone" id="telefone" class="form-control" placeholder="Digite o seu telefone" aria-describedby="helpetelefone">
+              <small id="helpetelefone" class="text-muted">Digite um numero de telefone valido</small>
+            </div>
+            <div class="mb-3">
+              <label for="nascimento" class="form-label">Data de nascimento</label>
+              <input type="date" name="nascimento" id="nascimento" class="form-control" placeholder="DD/MM/AAAA" aria-describedby="helpdata">
+              <small id="helpdata" class="text-muted">Digite uma data valida</small>
+            </div>
+            <button type="submit" class="btn btn-primary">enviar</button>
+        </div>
+        
+        <div id="sobre" class="visually-hidden">
+            <P>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, doloribus qui. Consectetur ab corporis exercitationem suscipit assumenda minima vel deleniti! Ad modi laudantium mollitia. Molestias at laboriosam eaque. Vel, tempore?
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta ipsum ut dolorem aut laborum quisquam fugiat quasi non, optio ullam, blanditiis unde sunt voluptatem ducimus iure? Quidem odio soluta in?
+            </P>
+        </div>
+        
+        
+        <!-- Optional: Place to the bottom of scripts -->
+        
+
     </div>
     
 

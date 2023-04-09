@@ -14,13 +14,20 @@
             $('.dropdown-menu').removeClass('show');
         }
     });
-    let meuid
-    $('.texto').mouseover(function(){
-        meuid = $(this).attr('id')
-        $('.'+meuid).show()
-        
-    });
-    $('.texto').mouseout(function(){
-        $('.'+meuid).hide()
-    });
+    $('.nav-modal-open').click( function(e){
+        e.preventDefault();
+        let elem = '#' + $(this).attr('rel');
+        let conteudo = $(elem).html();
+        $('.modal-body').html(conteudo);
+        $('.modal-title').html($(this).html())
+        let mymodal = new bootstrap.Modal($('#modalId'));
+        mymodal.show()
+
+    })
+
+    /*tentei assim mas não funcionou por algum motivo
+    $('.nav-modal-open').click(function(){
+        let elem = $(this).attr('rel')
+        $('modal-body').html($('#' + elem).html())
+    })*/
     
