@@ -5,3 +5,9 @@
 	position: relative;
 	padding: 25px 0px;
 }
+.erro{
+    border: red 1px solid;
+}
+.text-muted{
+    display: none;
+}

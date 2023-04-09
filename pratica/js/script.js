@@ -2,6 +2,7 @@
     $(document).ready(function(){
         $(".owl-carousel").owlCarousel()
     });
+    const emailvalido = /^[a-z0-9.]+@[a-z]+\.[a-z]+(\.[a-z]+)?$/i;
     $('.dropdown-toggle').click(function(){
         if($('.dropdown-menu').attr('aria-labelledby') == $(this).attr('id')){
             $('.dropdown-menu').addClass('show');
@@ -21,7 +22,7 @@
         $('.modal-body').html(conteudo);
         $('.modal-title').html($(this).html())
         let mymodal = new bootstrap.Modal($('#modalId'));
-        mymodal.show()
+        mymodal.show();
 
     })
 
@@ -30,4 +31,42 @@
         let elem = $(this).attr('rel')
         $('modal-body').html($('#' + elem).html())
     })*/
+
+    function validar(elemento){
+            if($(elemento).attr('name') == 'nome'){
+                if(elemento.value.match(/[a-z]/i)){
+                    $(elemento).removeClass('erro');
+                    $(elemento).parent().find('#help' + $(elemento).attr('id')).hide();
+                }
+                else{
+                    $(elemento).addClass('erro');
+                    $(elemento).parent().find('#help' + $(elemento).attr('id')).show();
+                }
+            }
+            else if($(elemento).attr('name') == 'email'){
+                if(elemento.value.match(emailvalido)){
+                    $(elemento).removeClass('erro');
+                    $(elemento).parent().find('#help' + $(elemento).attr('id')).hide();
+                }
+                else{
+                    $(elemento).addClass('erro');
+                    $(elemento).parent().find('#help' + $(elemento).attr('id')).show();
+                }
+            }
+            
+    };
+    $('body').on('blur', 'input' ,function(e){
+        validar(this)
+    })
+
+    $('body').on('submit', '.modal-body .form', function(e){
+        e.preventDefault();
+        const nome = $('#nome').val()
+        const email = $('#email').val()
+
+        if(nome == '' || email == ''){
+            console.log('um ou mais campos obrigatorios estão vazios')
+        }
+        
+    })
     
