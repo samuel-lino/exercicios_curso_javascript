@@ -69,6 +69,9 @@ $(document).ready(function(){
          if(num == 0){
             $(this).append('<div class="alert alert-danger" id="alert" role="alert">esgotado</div>');
          }
+         else if(num > 0 && num < 5){
+            $(this).append('<div class="alert alert-warning" id="alert" role="alert">ultimos em estoque</div>');
+         }
          $('#alert').css({
             'text-align': 'center'
          })
