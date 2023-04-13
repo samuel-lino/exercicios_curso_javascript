@@ -7,6 +7,7 @@ $(document).ready(function(){
       loop:true,
       margin:10,
       nav:true,
+      center: true,
       responsive:{
          0:{
             items:1
@@ -34,11 +35,11 @@ $(document).ready(function(){
          'color': '#ffffff'
       })
    });
-   let produtosquant = {'Produto 1' :'4', 'Produto 2': '2', 'Produto 3': '0', 'Produto 4': '5', 'Produto 5': '3', 'Produto 6': '1', 'Produto 7': '2', 'Produto 8': '9', 'Produto 9': '4'};
+   let produtosquant = {'Item 1' : 4 , 'Item 2': 2, 'Item 3': 0, 'Item 4': 5, 'Item 5': 3, 'Item 6': 1, 'Item 7': 2, 'Item 8': 9, 'Item 9': 4};
    
    
    //cria um alerta sobre o produto 
-   $('.featured-item').append('<div class="alert alert-info" role="alert">Oferta imperdivel</div>');
+ 
    //organiza o alerta
    $('.alert').css({
       'text-align': 'center'
@@ -48,8 +49,8 @@ $(document).ready(function(){
    $('.featured-item a, h4, h6').hide();
    //exibe as informações do produto ao passar o mouse sobre a imagem
    $('.featured-item').mouseover(function(){
-      
-      let quant = $(this).find('h4').html()
+
+      let quant = $(this).find('img').attr('alt')
       let num = produtosquant[quant]
       //verifica se o badge ja existe
       if ($(this).find('h5').length == 0){
@@ -63,12 +64,24 @@ $(document).ready(function(){
             'text-align': 'center'
          })
       }
+      //cria um alerta sobre o produto 
+      if($(this).find('div#alert').length == 0){
+         if(num == 0){
+            $(this).append('<div class="alert alert-danger" id="alert" role="alert">esgotado</div>');
+         }
+         $('#alert').css({
+            'text-align': 'center'
+         })
+      }
       $(this).find('a, h4, h6').show();
    });
    //esconde as informações novamente apos o mouse sair
    $('.featured-item').mouseout(function(){
       if($(this).find('h5').length > 0){
          $(this).find('h5').remove()
+      }
+      if($(this).find('div#alert').length > 0){
+         $(this).find('div#alert').remove()
       }
       $(this).find('a, h4, h6').hide();
    });
@@ -79,9 +92,25 @@ $(document).ready(function(){
    $('.featured-item h4, h6').css({
       'text-align': 'center'
    });
-   $('#ok').on('click', function(){
-      produtosquant['Produto 2'] = $('#produto2').val()
-      console.log(produtosquant['Produto 2'])
+   //atualiza o badge
+   function atualizar(elemento, quant){
+      $(elemento).find('span').html(quant)
+   }
+   //pega a ação do clicar no botão comprar do produto
+   $('.featured-item').find('a').on('click', function(e){
+      e.preventDefault();
+      let quant = $(this).parent().find('img').attr('alt')
+      //verifica se existe estoque do produto
+      if(produtosquant[quant] > 0){
+         //diminui a quantidade em estoque 
+         produtosquant[quant] -= 1
+         atualizar($(this).parent().find('h5'), produtosquant[quant])
+      }
+      //emite um aviso caso o produto esteja esgotado
+      else{
+         alert('Produto esgotado!')
+      }
+      
    })
 });
 
