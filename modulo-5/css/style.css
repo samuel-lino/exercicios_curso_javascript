@@ -124,7 +124,7 @@ a {
 /* Banner Style */
 .banner {
 	margin-top: 50px;
-	background-image: url(../assets/images/banner-bg.jpg);
+	background-image: url(../assets/images/baner-eletronicos.avif);
 	background-size: cover;
 	background-repeat: no-repeat;
 	padding: 150px 0px;
@@ -161,28 +161,36 @@ a {
 	border: 1px solid #eee;
 	padding: 20px;
 	transition: all 0.5s;
+	height: 600px;
 }
 .featured-item:hover {
 	opacity: 0.9;
 }
 .featured-item img {
 	width: 100%;
+	height: 60%;
 }
 .featured-item h4 {
+	text-align: center;
 	font-size: 17px;
 	font-weight: 700;
 	color: #1e1e1e;
 	margin-top: 15px;
 	transition: all 0.5s;
 }
+.featured-item a{
+	margin: 5px;
+	margin-left: 150px;
+}
 .featured-item:hover h4 {
 	color: #3a8bcd;
 }
 .featured-item h6 {
 	color: #3a8bcd;
+	text-align: center;
 	font-size: 15px;
 	font-weight: 700;
-	margin-bottom: 0px;
+	margin-bottom: 2px;
 }
 .owl-theme .owl-dots {
 	text-align: center;
