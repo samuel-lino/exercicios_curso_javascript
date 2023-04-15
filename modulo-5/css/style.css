@@ -205,14 +205,15 @@ a {
 .owl-next{
 	position: absolute;
 	margin-left: 105%;
-	scale: 300%;
-	margin-bottom: 50%;
+	scale: 500%;
+	margin-top:-30%;
 }
 .owl-prev{
 	position: absolute;
 	margin-left: -5%;
-	scale: 300%;
-	margin-bottom: 100%;
+	scale: 500%;
+	margin-top:-30%;
+
 }
 .owl-theme .owl-dots {
 	text-align: center;
