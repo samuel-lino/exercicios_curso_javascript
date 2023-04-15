@@ -1,5 +1,3 @@
-// instancia jquery e evita conflitos
-// jQuery( function($){
 $(document).ready(function(){
    
    $('.owl-carousel').owlCarousel({
@@ -36,24 +34,6 @@ $(document).ready(function(){
    //  $('.featured-item:first h4').css('color', '#f00')
    
    
-   $('#form-submit').on('click', function(e){
-      
-      e.preventDefault()
-      
-      if( $('#email').val() != '' ){
-         
-         $('#email').animate({
-            opacity: "toggle",
-            top: "-50"
-         }, 500, function(){
-            console.log($(this).val())
-         })
-         
-      }
-      
-      
-   });
-   
    
    /*
    * Ouvinte de eventos .nav-modal-open
@@ -84,14 +64,16 @@ $(document).ready(function(){
    */
    function validate( elem ){
       const cpfvalido = /^[0-9]{3}\.[0-9]{3}\.[0-9]{3}\-[0-9]{2}$/
-      const emailvalido = /^[a-z0-9]\@[a-z0-9]\.[a-z]/
+      const emailvalido = /^[a-z0-9.]+@[a-z]+\.[a-z]+(\.[a-z]+)?$/i
+      const cepvalido = /^[0-9]{5}\-[0-9]{3}$/
+      const datavalido = /^(\d{2})\/(\d{2})\/(\d{4})$/
+      const horavalido = /^[0-9]{2}\:[0-9]{2}$/
       if( elem.val() == '') {
          
+         elem.addClass('invalid')
          console.log('o campo de '+ elem.attr('name') + ' é obrigatório')
-         
          elem.parent().find('.text-muted').show()
          
-         elem.addClass('invalid')
       }
       else{
          if(elem.attr('name') == 'cpf'){
@@ -106,9 +88,56 @@ $(document).ready(function(){
                elem.addClass('invalid')
             }
          }
-         if(elem.attr('name') == 'email'){
-            
+         else if(elem.attr('name') == 'email'){
             if(elem.val().match(emailvalido)){
+               elem.parent().find('.text-muted').hide()
+               elem.removeClass('invalid')
+            }
+            else
+            {
+               elem.addClass('invalid')
+               elem.parent().find('.text-muted').show()
+               
+            }
+         }
+         else if(elem.attr('name') == 'nome'){
+            
+            if(elem.val().length > 2){
+               elem.parent().find('.text-muted').hide()
+               elem.removeClass('invalid')
+            }
+            else
+            {
+               elem.parent().find('.text-muted').show()
+               elem.addClass('invalid')
+            }
+         }
+         else if(elem.attr('name') == 'cep'){
+            
+            if(elem.val().match(cepvalido)){
+               elem.parent().find('.text-muted').hide()
+               elem.removeClass('invalid')
+            }
+            else
+            {
+               elem.parent().find('.text-muted').show()
+               elem.addClass('invalid')
+            }
+         }
+         else if(elem.attr('name') == 'date'){
+            if(elem.val().match(datavalido)){
+               elem.parent().find('.text-muted').hide()
+               elem.removeClass('invalid')
+            }
+            else
+            {
+               elem.parent().find('.text-muted').show()
+               elem.addClass('invalid')
+            }
+         }
+         else if(elem.attr('name') == 'time'){
+            
+            if(elem.val().match(horavalido)){
                elem.parent().find('.text-muted').hide()
                elem.removeClass('invalid')
             }
@@ -124,66 +153,82 @@ $(document).ready(function(){
          } 
       }
    }   
-      $('body').on('submit', '.modal-body .form', function(e){
-         
-         e.preventDefault()
-         
-         const inputName = $('#nome')
-         const inputEmail = $('#email')
-         
-         validate(inputName)
-         validate(inputEmail)
-         
-         if(inputEmail.hasClass('invalid') || inputName.hasClass('invalid')){
-            console.log('verificar campos obrigatórios')
-            return false
-         } 
-         else {
-            $(this).submit()  
-         }
-         
-      })
+   $('body').on('submit', '.modal-body .form', function(e){
       
-      $('body').on('blur', '#nome', function(){
-         validate($(this))
-      })
+      e.preventDefault()
       
-      $('body').on('blur', '#email', function(){
-         validate($(this))
-      })
+      const inputName = $('#nome')
+      const inputEmail = $('#email')
+      const inputdate = $('#date')
+      const inputcep = $('#cep')
+      const inputtime = $('#time')
+      const inputcpf = $('#cpf')
+      const inputphone = $('#phone')
       
+      validate(inputName)
+      validate(inputEmail)
+      validate(inputdate)
+      validate(inputcep)
+      validate(inputcpf)
+      validate(inputtime)
+      validate(inputphone)
       
-      $('body').on('focus', '#date', function(){
-         $(this).datepicker()
-      })
-      
-      $('body').on('blur', '#date', function(){
-         validate($(this))
-         $(this).mask('00/00/0000');
-      }) 
-      
-      $('body').on('blur', '#time', function(){
-         validate($(this))
-         $(this).mask('00:00');
-      })
-      
-      $('body').on('blur', '#cep', function(){
-         validate($(this))
-         $(this).mask('00000-000');
-      })
-      
-      $('body').on('blur', '#phone', function(){
-         validate($(this))
-         $(this).mask('00000-0000');
-      })
-      
-      $('body').on('blur', '#cpf', function(){
-         validate($(this))
-         $(this).mask('000.000.000-00');
-      })
-      $('body').on('focus', '#cpf', function(){
-         $(this).mask('000.000.000-00');
-      });
+      if(inputEmail.hasClass('invalid') || inputName.hasClass('invalid') || inputdate.hasClass('invalid') || inputcep.hasClass('invalid') || inputcpf.hasClass('invalid') || inputtime.hasClass('invalid') || inputphone.hasClass('invalid')){
+         console.log('verificar campos obrigatórios')
+         return false
+      } 
+      else {
+         $(this).submit()  
+      }
       
    })
    
+   $('body').on('blur', '#nome', function(){
+      validate($(this))
+   })
+   
+   $('body').on('blur', '#email', function(){
+      validate($(this))
+   });
+   
+   $('body').on('blur', '#date', function(){
+      validate($(this))
+      $(this).mask('00/00/0000');
+   }) ;
+   $('body').on('focus', '#date', function(){
+      $(this).mask('00/00/0000');
+   });
+   
+   $('body').on('blur', '#time', function(){
+      validate($(this))
+      $(this).mask('00:00');
+   });
+   $('body').on('focus', '#time', function(){
+      $(this).mask('00:00');
+   });
+   
+   $('body').on('blur', '#cep', function(){
+      validate($(this))
+      $(this).mask('00000-000');
+   });
+   $('body').on('focus', '#cep', function(){
+      $(this).mask('00000-000');
+   });
+   
+   $('body').on('blur', '#phone', function(){
+      validate($(this))
+      $(this).mask('00000-0000');
+   });
+   $('body').on('focus', '#phone', function(){
+      $(this).mask('00000-0000');
+   });
+   
+   $('body').on('blur', '#cpf', function(){
+      validate($(this))
+      $(this).mask('000.000.000-00');
+   });
+   $('body').on('focus', '#cpf', function(){
+      $(this).mask('000.000.000-00');
+   });
+   
+})
