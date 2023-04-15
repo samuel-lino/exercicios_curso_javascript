@@ -184,7 +184,13 @@ a {
 }
 .featured-item a{
 	margin-left: 40%;
+	margin-right: 40%;
 	text-align: center;
+}
+.featured-item button{
+	text-align: center;
+	margin-left: 34%;
+	margin-top: 2px;
 }
 .featured-item:hover h4 {
 	color: #ffffff;

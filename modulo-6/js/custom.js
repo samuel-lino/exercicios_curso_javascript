@@ -230,5 +230,17 @@ $(document).ready(function(){
    $('body').on('focus', '#cpf', function(){
       $(this).mask('000.000.000-00');
    });
+   let produtosquant = {'Item 1': 20, 'Item 2': 25, 'Item 3': 10, 'Item 4': 8, 'Item 5': 13, 'Item 6': 5}
+   $('.featured-item a, h6, button').hide()
+   $('.featured-item').mouseover(function(){
+      let pos = $(this).find('img').attr('alt');
+      let num = produtosquant[pos];
+      $(this).find('button span').html(num)
+      $(this).find('a, h6, button').show()
+      
+   });
+   $('.featured-item').mouseout(function(){
+      $(this).find('a, h6, button').hide()
+   })
    
 })
