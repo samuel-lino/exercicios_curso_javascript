@@ -163,7 +163,7 @@ a {
 	padding: 2%;
 	transition: all 0.5s;
 	width: auto;
-	height: 600px;
+	height: 650px;
 	background-color:#458fcb;
 }
 .featured-item:hover {
@@ -201,6 +201,10 @@ a {
 	font-size: 15px;
 	font-weight: 700;
 	margin-bottom: 2px;
+}
+#sel-cor{
+	text-align: center;
+	border: solid 1px black;
 }
 .destaques{
 	width: 600px;
