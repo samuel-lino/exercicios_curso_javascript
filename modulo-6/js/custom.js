@@ -47,6 +47,15 @@ $(document).ready(function(){
       $('.modal-body').html($('#'+elem).html())
       
       $('.modal-header h5.modal-title').html($(this).text())
+      if(elem == 'sobre'){
+         $('#accordion').accordion({
+            heightStyle: 'content',
+            header : 'h3'
+         })
+         $('#accordion').find('p').css({
+            'color': '#fff'
+         })
+      }
       
       let myModal = new bootstrap.Modal($('#modelId'))
       
@@ -237,12 +246,12 @@ $(document).ready(function(){
       let num = produtosquant[pos];
       $(produto).find('button span').html(num)
    }
-   $('#accordion').accordion();
-   $('.featured-item').find('h6, a, button, fieldset').hide()
+   $('.featured-item').find('#estilo').hide()
    $('.featured-item').mouseover(function(){
-      $(this).find('h6, a, button, fieldset').show()
+      $(this).find('#estilo').show()
+      
    })
    $('.featured-item').mouseout(function(){
-      $(this).find('h6, a, button, fieldset').hide()
+      $(this).find('#estilo').hide()
    })
 })
