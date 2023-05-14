@@ -1,3 +1,5 @@
+const valorvalido = /\d/
+
 // cria uma conta 
 class conta{
     constructor(conta, saldo, titular, extrato = []){
@@ -16,40 +18,61 @@ class conta{
 class transacao{
     // aqui eu recebo a conta de onde vai sair o dinheiro, a conta que vai recebelo e o valor a ser transferido
     transferencia(contaSaida, contaEntrada, valor){
-        //verifica se a conta de saida tem dinheiro suficiente
-        if(contaSaida.saldo >= valor){
-            //executa a transação
-            contaSaida.saldo = contaSaida.saldo - valor
-            contaEntrada.saldo = contaEntrada.saldo + valor
-            // registra a transação feita
-            o1.registrar('transferencia no valor de ' + valor + ' para a conta ' + contaEntrada.conta, contaSaida)
-            o1.registrar('recebido o valor de ' + valor + '  da conta ' + contaSaida.conta, contaEntrada)
+        //verifica se o valor é um número
+        if(valor.match(valorvalido)){
+             //verifica se a conta de saida tem dinheiro suficiente
+            if(contaSaida.saldo >= valor){
+                //executa a transação
+                contaSaida.saldo = contaSaida.saldo - valor
+                contaEntrada.saldo = contaEntrada.saldo + valor
+                // registra a transação feita
+                o1.registrar('transferencia no valor de ' + valor + ' para a conta ' + contaEntrada.conta, contaSaida)
+                o1.registrar('recebido o valor de ' + valor + '  da conta ' + contaSaida.conta, contaEntrada)
+            } 
+            else{
+                // exibe um alerta caso o saldo for insuficiente
+                console.log('saldo insuficiente para esta operação')
+            }
         }
         else{
-            // exibe um alerta caso o saldo for insuficiente
-            console.log('saldo insuficiente para esta operação')
+            console.log('valor invalido')
         }
+        
+       
+       
     }
     // operação de retirada onde pega a conta a ser retirada e o valor
     retirada(Conta, valor){
-        //verifica se existe saldo o suficiente
-        if(Conta.saldo >= valor){
-            //retira o valor do saldo
-            Conta.saldo = Conta.saldo - valor 
-            //registra a operação
-            o1.registrar('foi retirado o valor de '+ valor, Conta)
+        if(valor.match(valorvalido)){
+            //verifica se existe saldo o suficiente
+            if(Conta.saldo >= valor){
+                //retira o valor do saldo
+                Conta.saldo = Conta.saldo - valor 
+                //registra a operação
+                o1.registrar('foi retirado o valor de '+ valor, Conta)
+            }
+            else{
+                //avisa caso o não tenha saldo
+                console.log('saldo insuficiente para esta operação')
+            }
+        }else{
+            console.log('valor invalido')
         }
-        else{
-            //avisa caso o não tenha saldo
-            console.log('saldo insuficiente para esta operação')
-        }
+        
     }
     // operação de deposito onde recebe uma conta e o valor
     deposito(Conta, valor){
-        // adiciona o valor ao saldo
-        Conta.saldo = Conta.saldo + valor
-        //registra a operação
-        o1.registrar('foi depoitado o valor de '+ valor, Conta)
+        if(valor.match(valorvalido)){
+            // adiciona o valor ao saldo
+            Conta.saldo = Conta.saldo + valor
+            //registra a operação
+            o1.registrar('foi depoitado o valor de '+ valor, Conta)
+        }
+        else{
+            console.log('valor invalido')
+        }
+        
+        
     }
 }
 // cria o registro para o extrato
