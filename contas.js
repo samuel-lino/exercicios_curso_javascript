@@ -1,4 +1,4 @@
-const valorvalido = /\d/
+
 
 // cria uma conta 
 class conta{
@@ -19,7 +19,7 @@ class transacao{
     // aqui eu recebo a conta de onde vai sair o dinheiro, a conta que vai recebelo e o valor a ser transferido
     transferencia(contaSaida, contaEntrada, valor){
         //verifica se o valor é um número
-        if(valor.match(valorvalido)){
+        if(valor === 'number'){
              //verifica se a conta de saida tem dinheiro suficiente
             if(contaSaida.saldo >= valor){
                 //executa a transação
@@ -43,7 +43,7 @@ class transacao{
     }
     // operação de retirada onde pega a conta a ser retirada e o valor
     retirada(Conta, valor){
-        if(valor.match(valorvalido)){
+        if(valor === 'number'){
             //verifica se existe saldo o suficiente
             if(Conta.saldo >= valor){
                 //retira o valor do saldo
@@ -62,7 +62,7 @@ class transacao{
     }
     // operação de deposito onde recebe uma conta e o valor
     deposito(Conta, valor){
-        if(valor.match(valorvalido)){
+        if(valor === 'number'){
             // adiciona o valor ao saldo
             Conta.saldo = Conta.saldo + valor
             //registra a operação
@@ -86,17 +86,9 @@ class registro{
 }
 // colocando o codigo para funcionar
 //criou a conta1
-const conta1 = new conta
-conta1.conta = '000-1'
-conta1.saldo = 1000
-conta1.titular = 'samuel'
-conta1.extrato = []
+const conta1 = new conta('000-1', 1000, 'samuel')
 //criou a conta2
-const conta2 = new conta
-conta2.conta = '000-2'
-conta2.saldo = 1000
-conta2.titular = 'maria'
-conta2.extrato = []
+const conta2 = new conta('000-2', 1000, 'maria')
 //iniciou uma transação
 const m1 = new transacao
 //inicia um registro
